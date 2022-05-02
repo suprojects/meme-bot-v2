@@ -3,7 +3,7 @@ from utils import imgflip
 
 
 async def is_recent_imgflip_meme(_, __, m):
-    data = m.query.split(" ")[0]
+    data = m.query.split(" ")[0].lower()
 
     if data in imgflip.recent_memes_by_name:
         return True
@@ -41,11 +41,23 @@ async def inline_prediction(_, __, m):
 
     data = m.query.split(" ")[0].lower().strip()
 
-    for meme in imgflip.recent_memes_by_name:
-        if data in meme:
-            return True
+    if data != ("f" or "tweet"):
 
-    return False
+        for meme in imgflip.recent_memes_by_name:
+            if data in meme:
+                return True
+
+        return False
 
 
 inlinePrediction = filters.create(inline_prediction)
+
+
+async def f_in_chat(_, __, m):
+
+    data = m.query.split(" ")[0].lower().strip()
+
+    return data == "f"
+
+
+fInChat = filters.create(f_in_chat)
