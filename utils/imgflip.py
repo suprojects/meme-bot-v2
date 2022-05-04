@@ -91,7 +91,8 @@ def get_recent_memes_by_name():
 
 def cache_recent_memes():
 
-    global recent_memes_by_id, recent_memes_by_name
+    global recent_memes_by_id, recent_memes_by_name, recent_memes_list
 
     recent_memes_by_id = get_recent_memes_by_id()
     recent_memes_by_name = get_recent_memes_by_name()
+    recent_memes_list = list(recent_memes_by_id.keys())
