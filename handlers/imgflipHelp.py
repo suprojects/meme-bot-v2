@@ -37,7 +37,7 @@ async def ImgflipMainMenu(c, m):
         text=f"""
 **Imgflip Meme generator module**
 
-You can generate memes from the list of top 100 template provided from imgflip.com.
+You can generate memes from the list of top 100 template provided by imgflip.com.
 
 **Meme Generation Format:**
 `@{(await c.get_me()).username} template text1; text2; text3; ...`
@@ -93,6 +93,7 @@ async def imgflipView(c, m):
     textExample = textExample.strip("; ")
 
     keyboard = [
+        [("Use this template", f"{template['name']} ", "switch_inline_query")],
         [
             (
                 "View Example",
@@ -100,7 +101,6 @@ async def imgflipView(c, m):
                 "switch_inline_query_current_chat",
             )
         ],
-        [("Use this template", f"{template['name']} ", "switch_inline_query")],
         [
             (
                 f"⏭️ {imgflip.recent_memes_by_id[imgflip.recent_memes_list[imgflip.recent_memes_list.index(template['id']) - 1]]['name'].replace('_', ' ').title()}",
