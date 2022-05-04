@@ -103,7 +103,7 @@ async def imgflipView(c, m):
         ],
         [
             (
-                f"⏭️ {imgflip.recent_memes_by_id[imgflip.recent_memes_list[imgflip.recent_memes_list.index(template['id']) - 1]]['name'].replace('_', ' ').title()}",
+                f"⏮️ {imgflip.recent_memes_by_id[imgflip.recent_memes_list[imgflip.recent_memes_list.index(template['id']) - 1]]['name'].replace('_', ' ').title()}",
                 f"imgflipView_{imgflip.recent_memes_list[imgflip.recent_memes_list.index(template['id']) - 1]}_{page}",
             ),
             (
